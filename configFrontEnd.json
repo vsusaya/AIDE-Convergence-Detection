@@ -2,9 +2,9 @@
 "db":{
 		"host":"localhost",
 		"port":5432,
-		"user":"user",
-		"pwd":"password",
-		"db":"housing"
+		"user":"converge",
+		"pwd":"converge",
+		"db":"house"
 },
 "demo":{
 		"scenario":"Scenario 2",
