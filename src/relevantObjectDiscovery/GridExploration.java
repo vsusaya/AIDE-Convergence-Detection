@@ -108,7 +108,7 @@ public class GridExploration extends ObjectDiscovery{
 			if(attributeValues.size()>grids){
 				for(int j=0; j<grids; j++){
 					attrGridCenters.add(Double.parseDouble(""+attributeValues.get((int)((inSegment*j)+(inSegment/2))))); 
-					//System.out.println(Double.parseDouble(""+attributeValues.get((int)((inSegment*j)+(inSegment/2)))));
+					System.out.println( ((inSegment*j)+(inSegment/2)) + " // " +attributeValues.get((int)((inSegment*j)+(inSegment/2))));
 				}
 			}else{
 				for(int j=0; j<attributeValues.size(); j++){

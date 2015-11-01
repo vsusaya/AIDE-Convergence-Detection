@@ -120,7 +120,7 @@ public class LinearExploration implements MiddleWare, Cloneable{
 		ArrayList<Tuple> exploit = new ArrayList<Tuple>();
 		if (!Global.SKIP_BOUNDARYEXPLOITATION) {
 			System.out.println("Exploring boundaries...");
-			if(!predictedQuery.equals("") && !predictedQuery.endsWith("WHERE ") && !predictedQuery.endsWith("WHERE ")){ //if there is a tree built
+			if(!predictedQuery.equals("") && !predictedQuery.endsWith("WHERE ")){ //if there is a tree built
 				try {
 					exploit.addAll(boundExp.exploitBoundaries());
 				} catch (SQLException | IOException | InterruptedException e) {
@@ -168,8 +168,8 @@ public class LinearExploration implements MiddleWare, Cloneable{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if(!(Global.SCENARIO ==4) || (Global.SCENARIO == 4 && !foundRelevant)) //do not move to next exploration level if you are in scenario 4 and you found relevant
-				samples.addAll(explore);
+
+			samples.addAll(explore);
 			allExploreTuples.addAll(explore);//check if you add the boundaries here too.
 			if(Global.SCENARIO == 2)
 				interestingFromExploreAllIter = label.countRelevantFromExplorationPhase(allExploreTuples);
@@ -187,7 +187,7 @@ public class LinearExploration implements MiddleWare, Cloneable{
 			} catch (Exception e) {
 				System.out.println(e.toString());
 			}
-			samples.addAll(list);
+
 			if(Global.SCENARIO == 2)
 				interestingFromExploreAllIter = label.countRelevantFromExplorationPhase(list);
 			else

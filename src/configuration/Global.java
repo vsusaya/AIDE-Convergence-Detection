@@ -119,6 +119,9 @@ public class Global {
 			}
 			TARGET_QUERY = targetQuery;
 			SCENARIO = 4;
+		} else {
+			targetQuery = demo.getString("target_query");
+			SCENARIO = -1;
 		}
 
 		OBJECT_KEY = queryFE.getString("key");
@@ -197,14 +200,15 @@ public class Global {
 				CACHED_FILE_FOLDER += "&";
 			}
 		}
-		if(Global.SCENARIO == 2 || Global.SCENARIO == 4 || Global.SCENARIO == 1){
-			try {
-				//execute the target query and write the target samples into an arff file
-				executeTargetQuery();
-			} catch (IOException | SQLException e) {
-				e.printStackTrace();
-			}
+		
+		try {
+			executeTargetQuery();
+		} catch (IOException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
+		
 		//if the user has selected to focus his exploration on a specific domain range
 		//then trim the domains for all the attributes to be the specified by the user ranges.
 		//Domain ranges for all attributes should be specified
@@ -460,7 +464,6 @@ public class Global {
 	 */
 	public static void executeTargetQuery() throws IOException, SQLException {
 		targetSamples = new HashSet<Tuple>();
-		//System.out.println("Fetching target samples");
 		Connection connection = DBConnection.getConnection();
 		Statement statement = connection.createStatement();
 		String targetQueryWithKey = "SELECT "+Global.OBJECT_KEY+" , "+targetQuery.substring(6); //adds the key to the targetQuery.
