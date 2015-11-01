@@ -13,6 +13,8 @@ sudo cp /vagrant/postgresql.conf /etc/postgresql/9.4/main/
 sudo cp /vagrant/pg_hba.conf /etc/postgresql/9.4/main/
 sudo /etc/init.d/postgresql reload
 sudo /etc/init.d/postgresql restart
+psql house converge < /vagrant/real_estate.sql
+psql house converge < /vagrant/clean_dump.sql
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
