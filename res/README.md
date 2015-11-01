@@ -15,3 +15,8 @@ In order to stop the server (and stop draining your battery):
     vagrant destroy
 
 
+In order to connect to the database from your local machine with `psql`:
+
+    psql -U converge -h localhost
+
+... and use password "converge"
