@@ -17,6 +17,6 @@ In order to stop the server (and stop draining your battery):
 
 In order to connect to the database from your local machine with `psql`:
 
-    psql -U converge -h localhost
+    psql -U converge -h localhost house
 
 ... and use password "converge"
